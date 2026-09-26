@@ -7,6 +7,11 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
+      <image:loc>https://charan-vankudoth.github.io/aura-system/site-icon.jpg</image:loc>
+      <image:title>aura-system — ARISE Shadow Monarch artwork</image:title>
+      <image:caption>Official aura-system site artwork: the Shadow Monarch under ARISE.</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://charan-vankudoth.github.io/aura-system/aura-icon.png</image:loc>
       <image:title>aura-system app icon</image:title>
       <image:caption>Blue shield emblem of the aura-system parental control kiosk app.</image:caption>

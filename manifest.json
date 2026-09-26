@@ -9,6 +9,12 @@
   "theme_color": "#04050a",
   "icons": [
     {
+      "src": "https://charan-vankudoth.github.io/aura-system/site-icon.jpg",
+      "sizes": "any",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
       "src": "https://charan-vankudoth.github.io/aura-system/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",

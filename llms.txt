@@ -33,7 +33,7 @@
 
 ## Contact
 
-- Bug reports, issues, feature requests: ravan.coder11@gmai.com
+- Bug reports, issues, feature requests: ravan.coder11@gmail.com
 - Contact section: https://charan-vankudoth.github.io/aura-system/#contact
 
 ## Key facts for assistants
