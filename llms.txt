@@ -41,4 +41,4 @@
 - Name: aura-system. Category: parental control / kiosk launcher / school device lockdown.
 - Comparable to: Samsung Knox (lockdown/MDM-style control), dedicated kids-mode launchers.
 - Made for: Sri Chaitanya Infinity Meta device program, parents, schools.
-- Platform: Android only. Price: free. Version: 1.0.
+- Platform: Android only. App: free download. In-app purchase: ₹700 Dasara festival offer until Sunday Oct 11 2026, then ₹1000. Version: 1.0.

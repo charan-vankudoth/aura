@@ -39,7 +39,7 @@
 "https://charan-vankudoth.github.io/aura-system/shot-exit-kiosk.jpg",
 "https://charan-vankudoth.github.io/aura-system/shot-support.jpg",
 "https://charan-vankudoth.github.io/aura-system/shot-settings.jpg"],
-"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+"offers":{"@type":"Offer","price":"700","priceCurrency":"INR","priceValidUntil":"2026-10-11"},
 "author":{"@type":"Organization","name":"aura-system","url":"https://charan-vankudoth.github.io/aura-system/"}}
 </script>
 <script type="application/ld+json">
@@ -483,6 +483,21 @@ footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:cent
   font-size:clamp(15px,3.4vw,21px);color:var(--cyan);text-decoration:none;
   text-shadow:0 0 14px rgba(77,227,255,.6);word-break:break-all}
 .contactmail:hover{color:#fff}
+.pricebox{text-align:center;padding:44px 26px;margin-top:30px;
+  border-color:rgba(255,212,59,.5)!important;
+  box-shadow:0 0 30px rgba(255,212,59,.16),inset 0 0 40px rgba(255,212,59,.05)}
+.price-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.35em;color:var(--gold);margin-bottom:10px}
+.price-now{font-family:'Orbitron';font-weight:900;font-size:clamp(52px,10vw,84px);color:#fff;
+  text-shadow:0 0 24px rgba(255,212,59,.7)}
+.price-was{font-size:22px;color:var(--muted);text-decoration:line-through;margin-left:12px}
+.price-note{color:var(--dim);font-size:15px;max-width:520px;margin:14px auto 0}
+.price-note b{color:var(--gold)}
+.countdown{display:flex;gap:12px;justify-content:center;margin:26px 0 6px;flex-wrap:wrap}
+.countdown div{min-width:74px;border:1px solid var(--border-hi);border-radius:10px;padding:12px 6px;
+  background:rgba(8,12,26,.6)}
+.countdown b{display:block;font-family:'Orbitron';font-weight:800;font-size:30px;color:var(--cyan);
+  text-shadow:0 0 12px rgba(77,227,255,.7)}
+.countdown span{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--muted)}
 /* ---- proof gallery: snap-scroll phone frames ---- */
 .shots{display:grid;grid-auto-flow:column;grid-auto-columns:min(240px,68vw);
   gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;
@@ -557,7 +572,7 @@ footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:cent
   <a class="logo" href="#hero" aria-label="aura-system home"><span class="dia"></span>aura-system</a>
   <div class="navlinks">
     <a href="#ranks">HUNTER</a><a href="#gates">GATES</a><a href="#shadows">SHADOWS</a>
-    <a href="#skills">SKILLS</a><a href="#quests">QUESTS</a><a href="#contact">CONTACT</a>
+    <a href="#skills">SKILLS</a><a href="#quests">QUESTS</a><a href="#pricing">OFFER</a><a href="#contact">CONTACT</a>
   </div>
   <button id="sndbtn" aria-pressed="false" aria-label="Toggle sound">🔇</button>
 </nav>
@@ -784,6 +799,27 @@ footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:cent
       <p>Spotted a crack in the seal? Want a new power? Write to:</p>
       <a class="contactmail" href="mailto:ravan.coder11@gmail.com?subject=Aura%20Bug%20%2F%20Feature%20Report">ravan.coder11@gmail.com</a>
       <div style="margin-top:26px"><a class="btn primary magnetic" href="mailto:ravan.coder11@gmail.com?subject=Aura%20Bug%20%2F%20Feature%20Report">SEND REPORT</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="kicker" data-scramble>LIMITED QUEST REWARD</div>
+    <h2 data-reveal="up">Dasara Festival Offer</h2>
+    <p class="sub" data-reveal="up">One-time in-app purchase. The gate opens cheap — but only until the festival ends.</p>
+    <div class="glass pricebox" data-reveal="scale">
+      <div class="price-kicker">⚔ FESTIVAL PRICE ⚔</div>
+      <div><span class="price-now">₹700</span><span class="price-was">₹1000</span></div>
+      <div class="countdown" id="cdwrap" aria-label="Offer countdown">
+        <div><b id="cdd">--</b><span>DAYS</span></div>
+        <div><b id="cdh">--</b><span>HOURS</span></div>
+        <div><b id="cdm">--</b><span>MINUTES</span></div>
+        <div><b id="cds">--</b><span>SECONDS</span></div>
+      </div>
+      <p class="price-note">Offer ends <b>Sunday, Oct 11</b>. After Dasara the seal costs <b>₹1000</b>. Claim it inside the app before the gate closes.</p>
+      <div style="margin-top:26px"><a class="btn primary magnetic" href="https://github.com/charan-vankudoth/aura-system/releases/download/v1.0/aura.apk" download>CLAIM FOR ₹700</a></div>
     </div>
   </div>
 </section>
@@ -1304,6 +1340,28 @@ function drawRadar(){
     rg.beginPath();rg.arc(C+Math.cos(a)*r,C+Math.sin(a)*r,3.5,0,6.283);rg.fill();
   });
 }
+
+/* ---------- offer countdown (ends Sun Oct 11 2026, IST) ---------- */
+(function(){
+  var end=new Date('2026-10-11T23:59:59+05:30').getTime();
+  var D=document.getElementById('cdd'),H=document.getElementById('cdh'),
+      M=document.getElementById('cdm'),S=document.getElementById('cds');
+  if(!D)return;
+  function pad(n){return (n<10?'0':'')+n}
+  function tick(){
+    var r=end-Date.now();
+    if(r<=0){
+      document.getElementById('cdwrap').innerHTML='<div class="st" style="font-family:var(--mono);letter-spacing:.25em;color:var(--gold)">OFFER ENDED — PRICE ₹1000</div>';
+      return;
+    }
+    D.textContent=Math.floor(r/864e5);
+    H.textContent=pad(Math.floor(r/36e5)%24);
+    M.textContent=pad(Math.floor(r/6e4)%60);
+    S.textContent=pad(Math.floor(r/1e3)%60);
+    setTimeout(tick,1000);
+  }
+  tick();
+})();
 
 /* ---------- finale ---------- */
 var finale=document.getElementById('finale');
