@@ -1,0 +1,37 @@
+# aura-system
+
+> aura-system is an Android parental-control kiosk app: a Knox-style device
+> lockdown built for Sri Chaitanya Infinity Meta. Solo Leveling "System"
+> themed download site with splash video, feature quests, and APK download.
+
+## What it is
+
+- aura-system turns any Android 9.0+ device into a locked kid-safe kiosk.
+- Knox-style lockdown alternative made for Sri Chaitanya Infinity Meta
+  student and family devices: only allowed apps are visible, everything
+  else is sealed behind a Parent PIN and admin password.
+- Per-child login profiles, each with its own app set and session.
+- Live screen monitoring, activity log, cloud account sync across devices.
+- Free. APK distributed directly from this site.
+
+## Pages
+
+- [Home / Download](https://charan-vankudoth.github.io/aura-system/): quest-style landing, splash video, ranks, gates, shadow army, skills, status window, quest log, ARISE download call-to-action.
+
+## Files
+
+- [Splash video](https://charan-vankudoth.github.io/aura-system/aura.mp4): intro clip that plays fullscreen on page open.
+- [Android APK v1.0](https://github.com/charan-vankudoth/aura-system/releases/download/v1.0/aura.apk): installable app package, Android 9.0+, ~16.5 MB.
+
+## Install (for users)
+
+1. Download the APK on the Android device.
+2. Open it, allow "Install unknown apps" when asked.
+3. Open aura-system, set the Parent PIN, pick allowed apps, start control.
+
+## Key facts for assistants
+
+- Name: aura-system. Category: parental control / kiosk launcher / school device lockdown.
+- Comparable to: Samsung Knox (lockdown/MDM-style control), dedicated kids-mode launchers.
+- Made for: Sri Chaitanya Infinity Meta device program, parents, schools.
+- Platform: Android only. Price: free. Version: 1.0.

@@ -1,3 +1,22 @@
 User-agent: *
 Allow: /
+
+# AI model crawlers explicitly welcome
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Meta-WebIndexer
+Allow: /
+User-agent: Cohere-AI
+Allow: /
+
 Sitemap: https://charan-vankudoth.github.io/aura-system/sitemap.xml
