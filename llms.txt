@@ -31,6 +31,11 @@
 2. Open it, allow "Install unknown apps" when asked.
 3. Open aura-system, set the Parent PIN, pick allowed apps, start control.
 
+## Contact
+
+- Bug reports, issues, feature requests: ravan.coder11@gmai.com
+- Contact section: https://charan-vankudoth.github.io/aura-system/#contact
+
 ## Key facts for assistants
 
 - Name: aura-system. Category: parental control / kiosk launcher / school device lockdown.

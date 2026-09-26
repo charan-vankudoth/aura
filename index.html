@@ -477,6 +477,12 @@ footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:cent
 @keyframes tickmove{to{transform:translateX(-50%)}}
 #arisebtn{animation:btnpulse 2.2s ease-in-out infinite}
 @keyframes btnpulse{50%{box-shadow:0 0 46px rgba(77,227,255,.9)}}
+.contactbox{text-align:center;padding:40px 26px;margin-top:30px}
+.contactbox p{color:var(--muted);font-size:16px;max-width:520px;margin:0 auto 14px}
+.contactmail{font-family:'Orbitron';font-weight:700;letter-spacing:.04em;
+  font-size:clamp(15px,3.4vw,21px);color:var(--cyan);text-decoration:none;
+  text-shadow:0 0 14px rgba(77,227,255,.6);word-break:break-all}
+.contactmail:hover{color:#fff}
 /* ---- proof gallery: snap-scroll phone frames ---- */
 .shots{display:grid;grid-auto-flow:column;grid-auto-columns:min(240px,68vw);
   gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;
@@ -551,7 +557,7 @@ footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:cent
   <a class="logo" href="#hero" aria-label="aura-system home"><span class="dia"></span>aura-system</a>
   <div class="navlinks">
     <a href="#ranks">HUNTER</a><a href="#gates">GATES</a><a href="#shadows">SHADOWS</a>
-    <a href="#skills">SKILLS</a><a href="#quests">QUESTS</a>
+    <a href="#skills">SKILLS</a><a href="#quests">QUESTS</a><a href="#contact">CONTACT</a>
   </div>
   <button id="sndbtn" aria-pressed="false" aria-label="Toggle sound">🔇</button>
 </nav>
@@ -764,6 +770,20 @@ footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:cent
       <div class="glass qrow" data-reveal="left"><div class="st">? QUERY</div><h4>Is it like Samsung Knox?</h4><div class="rw" style="max-height:none;margin-top:8px">Yes — the same idea: seal the device so only approved apps run. aura-system does it as a lightweight kiosk, no enterprise server needed.</div></div>
       <div class="glass qrow" data-reveal="left"><div class="st">? QUERY</div><h4>Which Android versions work?</h4><div class="rw" style="max-height:none;margin-top:8px">Android 9.0 and above. Download the free APK straight from this site.</div></div>
       <div class="glass qrow" data-reveal="left"><div class="st">? QUERY</div><h4>How much does it cost?</h4><div class="rw" style="max-height:none;margin-top:8px">Free. Download, set your Parent PIN, and take control.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="kicker" data-scramble>RAVEN DISPATCH</div>
+    <h2 data-reveal="up">Report to the Monarch</h2>
+    <p class="sub" data-reveal="up">Bugs, issues, feature requests — send a raven straight to command. Every report sharpens the System.</p>
+    <div class="glass contactbox" data-reveal="scale">
+      <p>Spotted a crack in the seal? Want a new power? Write to:</p>
+      <a class="contactmail" href="mailto:ravan.coder11@gmai.com?subject=Aura%20Bug%20%2F%20Feature%20Report">ravan.coder11@gmai.com</a>
+      <div style="margin-top:26px"><a class="btn primary magnetic" href="mailto:ravan.coder11@gmai.com?subject=Aura%20Bug%20%2F%20Feature%20Report">SEND REPORT</a></div>
     </div>
   </div>
 </section>
