@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://charan-vankudoth.github.io/aura-system/</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://charan-vankudoth.github.io/aura-system/aura-icon.png</image:loc>
+      <image:title>aura-system app icon</image:title>
+      <image:caption>Blue shield emblem of the aura-system parental control kiosk app.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://charan-vankudoth.github.io/aura-system/shot-kiosk-home.jpg</image:loc>
+      <image:title>aura-system kiosk home screen</image:title>
+      <image:caption>Locked kiosk home with Infinity Meta branding and user ID watermark.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://charan-vankudoth.github.io/aura-system/shot-kiosk-menu.jpg</image:loc>
+      <image:title>aura-system kiosk command menu</image:title>
+      <image:caption>Kiosk menu: Settings, Exit Kiosk, Support, Clear app data, Open source.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://charan-vankudoth.github.io/aura-system/shot-exit-kiosk.jpg</image:loc>
+      <image:title>aura-system exit kiosk lock screen</image:title>
+      <image:caption>Exit Kiosk demands the IT admin code and shows full device identity.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://charan-vankudoth.github.io/aura-system/shot-support.jpg</image:loc>
+      <image:title>aura-system support screen</image:title>
+      <image:caption>Support screen with call, email, diagnostics log and Knox Remote Support.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://charan-vankudoth.github.io/aura-system/shot-settings.jpg</image:loc>
+      <image:title>aura-system in-kiosk settings</image:title>
+      <image:caption>In-kiosk settings for Wi-Fi, auto-rotate and display.</image:caption>
+    </image:image>
   </url>
 </urlset>

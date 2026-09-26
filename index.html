@@ -20,7 +20,10 @@
 <meta property="og:url" content="https://charan-vankudoth.github.io/aura-system/">
 <meta property="og:video" content="https://charan-vankudoth.github.io/aura-system/aura.mp4">
 <meta property="og:video:type" content="video/mp4">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://charan-vankudoth.github.io/aura-system/aura-icon.png">
+<meta property="og:image:alt" content="aura-system app icon — blue shield emblem">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://charan-vankudoth.github.io/aura-system/aura-icon.png">
 <meta name="twitter:title" content="aura-system — Parental Control Kiosk for Android">
 <meta name="twitter:description" content="Kid-safe kiosk, Parent PIN, live monitoring, cloud sync. Download the free APK. Arise.">
 <script type="application/ld+json">
@@ -29,6 +32,13 @@
 "operatingSystem":"Android","softwareVersion":"1.0",
 "description":"Knox-style Android lockdown built for Sri Chaitanya Infinity Meta. Solo Leveling-style parental-control kiosk: locked home screen, per-child profiles, Parent PIN, live monitoring and cloud sync.",
 "downloadUrl":"https://github.com/charan-vankudoth/aura-system/releases/download/v1.0/aura.apk",
+"image":"https://charan-vankudoth.github.io/aura-system/aura-icon.png",
+"screenshot":[
+"https://charan-vankudoth.github.io/aura-system/shot-kiosk-home.jpg",
+"https://charan-vankudoth.github.io/aura-system/shot-kiosk-menu.jpg",
+"https://charan-vankudoth.github.io/aura-system/shot-exit-kiosk.jpg",
+"https://charan-vankudoth.github.io/aura-system/shot-support.jpg",
+"https://charan-vankudoth.github.io/aura-system/shot-settings.jpg"],
 "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
 "author":{"@type":"Organization","name":"aura-system","url":"https://charan-vankudoth.github.io/aura-system/"}}
 </script>
@@ -467,6 +477,21 @@ footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:cent
 @keyframes tickmove{to{transform:translateX(-50%)}}
 #arisebtn{animation:btnpulse 2.2s ease-in-out infinite}
 @keyframes btnpulse{50%{box-shadow:0 0 46px rgba(77,227,255,.9)}}
+/* ---- proof gallery: snap-scroll phone frames ---- */
+.shots{display:grid;grid-auto-flow:column;grid-auto-columns:min(240px,68vw);
+  gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:8px 2px 20px;margin-top:30px;scrollbar-width:thin}
+.shot{scroll-snap-align:center;margin:0}
+.shot img{width:100%;border-radius:16px;display:block;
+  border:1px solid var(--border-hi);
+  box-shadow:0 0 26px rgba(77,227,255,.25),0 18px 40px rgba(0,0,0,.5);
+  transition:transform .35s,box-shadow .35s}
+.shot img:hover{transform:translateY(-6px) scale(1.02);
+  box-shadow:0 0 40px rgba(139,92,246,.5),0 22px 50px rgba(0,0,0,.6)}
+.shot figcaption{margin-top:12px}
+.shot figcaption b{display:block;font-family:'Orbitron';font-size:14px;
+  letter-spacing:.08em;color:var(--gold)}
+.shot figcaption span{color:var(--muted);font-size:14px}
 
 /* modal */
 #modal{position:fixed;inset:0;z-index:250;display:none;align-items:center;justify-content:center;
@@ -564,6 +589,37 @@ footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:cent
 </section>
 
 <div class="ticker" aria-hidden="true"><div class="ticker-inner" id="tickerin"></div></div>
+
+<!-- PROOF -->
+<section id="proof">
+  <div class="wrap">
+    <div class="kicker" data-scramble>PROOF OF POWER</div>
+    <h2 data-reveal="up">Witness the Lockdown</h2>
+    <p class="sub" data-reveal="up">No mockups. No renders. Real screenshots, ripped straight from a sealed device — swipe through the domain.</p>
+    <div class="shots" data-reveal="scale">
+      <figure class="shot">
+        <img src="shot-kiosk-home.jpg" alt="aura-system kiosk home screen with Infinity Meta branding and user ID watermark" loading="lazy">
+        <figcaption><b>⛓ THE SEALED DOMAIN</b><span>Infinity Meta branded home. Nothing exists except what the Monarch allows.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shot-kiosk-menu.jpg" alt="aura-system kiosk command menu with settings, exit, support and clear data options" loading="lazy">
+        <figcaption><b>⚔ THE COMMAND GATE</b><span>Settings, Exit, Support — every door in one menu, every door locked.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shot-exit-kiosk.jpg" alt="aura-system exit kiosk screen demanding IT admin code with device identity" loading="lazy">
+        <figcaption><b>🔒 THE FINAL SEAL</b><span>IT-admin code plus full device identity. No code — no escape. Ever.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shot-support.jpg" alt="aura-system support screen with call, email, diagnostics and Knox remote support" loading="lazy">
+        <figcaption><b>📡 THE LIFELINE</b><span>Call, mail, diagnostics — even Knox Remote Support, one tap away.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shot-settings.jpg" alt="aura-system in-kiosk settings for Wi-Fi, auto-rotate and display" loading="lazy">
+        <figcaption><b>🌡️ TOTAL ENVIRONMENT CONTROL</b><span>Wi-Fi, rotation, display — the whole device bends from inside the seal.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
 <!-- RANKS -->
 <section id="ranks">

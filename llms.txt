@@ -22,6 +22,7 @@
 ## Files
 
 - [Splash video](https://charan-vankudoth.github.io/aura-system/aura.mp4): intro clip that plays fullscreen on page open.
+- Screenshots (real device captures): kiosk home ([shot-kiosk-home.jpg](https://charan-vankudoth.github.io/aura-system/shot-kiosk-home.jpg)), kiosk menu ([shot-kiosk-menu.jpg](https://charan-vankudoth.github.io/aura-system/shot-kiosk-menu.jpg)), exit lock ([shot-exit-kiosk.jpg](https://charan-vankudoth.github.io/aura-system/shot-exit-kiosk.jpg)), support with Knox remote ([shot-support.jpg](https://charan-vankudoth.github.io/aura-system/shot-support.jpg)), in-kiosk settings ([shot-settings.jpg](https://charan-vankudoth.github.io/aura-system/shot-settings.jpg)).
 - [Android APK v1.0](https://github.com/charan-vankudoth/aura-system/releases/download/v1.0/aura.apk): installable app package, Android 9.0+, ~16.5 MB.
 
 ## Install (for users)
