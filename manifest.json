@@ -1,0 +1,18 @@
+{
+  "name": "aura-system — Parental Control Kiosk",
+  "short_name": "aura-system",
+  "description": "Knox-style Android lockdown built for Sri Chaitanya Infinity Meta. Kid-safe kiosk, Parent PIN, live monitoring, cloud sync.",
+  "start_url": "https://charan-vankudoth.github.io/aura-system/",
+  "scope": "https://charan-vankudoth.github.io/aura-system/",
+  "display": "standalone",
+  "background_color": "#04050a",
+  "theme_color": "#04050a",
+  "icons": [
+    {
+      "src": "https://charan-vankudoth.github.io/aura-system/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

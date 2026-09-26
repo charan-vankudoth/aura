@@ -17,6 +17,7 @@
 ## Pages
 
 - [Home / Download](https://charan-vankudoth.github.io/aura-system/): quest-style landing, splash video, ranks, gates, shadow army, skills, status window, quest log, ARISE download call-to-action.
+- [System Codex / FAQ](https://charan-vankudoth.github.io/aura-system/#codex): what aura-system is, who it is built for, Knox comparison, supported Android versions, price.
 
 ## Files
 
