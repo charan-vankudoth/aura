@@ -112,11 +112,15 @@ body:not(.touch) a,body:not(.touch) button{cursor:none}
 #splash{position:fixed;inset:0;z-index:500;background:#000;display:flex;
   align-items:center;justify-content:center;transition:opacity .6s}
 #splash.gone{opacity:0;pointer-events:none}
-#splash video{width:100%;height:100%;object-fit:cover}
+#splash video{width:100%;height:100%;object-fit:contain;background:#000}
 #splash .skip{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
   font-family:var(--mono);font-size:11px;letter-spacing:.35em;color:#fff;
   background:rgba(0,0,0,.55);border:1px solid var(--border-hi);
   padding:10px 26px;border-radius:8px}
+#splash .snd{position:absolute;top:22px;right:22px;
+  font-size:18px;color:#fff;
+  background:rgba(0,0,0,.55);border:1px solid var(--border-hi);
+  width:48px;height:48px;border-radius:50%}
 
 /* nav */
 nav{position:fixed;top:0;left:0;right:0;z-index:110;
@@ -424,6 +428,7 @@ footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:cent
 
 <div id="splash" role="region" aria-label="Intro video">
   <video id="splashvid" src="aura.mp4" autoplay muted playsinline preload="auto"></video>
+  <button class="snd" id="splashsnd" aria-label="Toggle splash sound">🔇</button>
   <button class="skip" id="splashskip">SKIP ▸</button>
 </div>
 
@@ -763,14 +768,29 @@ function dismissSplash(){
   setTimeout(function(){splash.style.display='none'},650);
   startBoot();
 }
+var sndb=document.getElementById('splashsnd');
+function updateSndBtn(){sndb.textContent=vid.muted?'🔇':'🔊'}
+sndb.addEventListener('click',function(e){
+  e.stopPropagation();
+  vid.muted=!vid.muted;
+  if(!vid.muted){try{vid.play()}catch(err){}}
+  updateSndBtn();beep(700,.07);
+});
 if(reduced){dismissSplash()}
 else{
   vid.addEventListener('ended',dismissSplash);
   vid.addEventListener('error',dismissSplash);
   splash.addEventListener('click',dismissSplash);
-  var playP=null;
-  try{playP=vid.play()}catch(e){dismissSplash()}
-  if(playP&&playP.catch)playP.catch(function(){dismissSplash()});
+  /* try WITH sound first — browsers that block it fall back to muted */
+  function muteAndPlay(){
+    vid.muted=true;updateSndBtn();
+    try{var p=vid.play();if(p&&p.catch)p.catch(function(){dismissSplash()})}
+    catch(e){dismissSplash()}
+  }
+  vid.muted=false;
+  try{var playP=vid.play();if(playP&&playP.catch)playP.catch(muteAndPlay)}
+  catch(e){muteAndPlay()}
+  updateSndBtn();
   setTimeout(dismissSplash,15000);
 }
 function flash(){
