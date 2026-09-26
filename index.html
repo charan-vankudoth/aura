@@ -736,7 +736,7 @@ function finish(){
   flash();
   setTimeout(function(){loader.style.display='none'},600);
 }
-(function tick(t){
+function tick(t){
   if(done)return;
   if(!t0)t0=t;
   var p=Math.min(1,(t-t0)/DUR);
