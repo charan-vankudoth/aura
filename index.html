@@ -390,6 +390,42 @@ body.ready .qwindow{animation:qin .9s ease-out .9s forwards}
 #claimdl.show{display:inline-block}
 footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:center;
   font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--muted);position:relative;z-index:2}
+/* ---- beauty pass: ticker, runes, grid floor, hero stats, shine, scrollbar ---- */
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#04060f}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--cyan),var(--violet));border-radius:5px}
+.btn::after{content:"";position:absolute;top:0;bottom:0;width:60px;left:-80px;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
+  transform:skewX(-20deg);transition:left .55s ease;pointer-events:none}
+.btn:hover::after{left:calc(100% + 80px)}
+#runes{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+#runes span{position:absolute;bottom:-40px;color:rgba(77,227,255,.55);
+  font-family:var(--mono);text-shadow:0 0 10px rgba(77,227,255,.8);
+  animation:runerise linear infinite}
+@keyframes runerise{0%{transform:translateY(0);opacity:0}15%{opacity:.9}
+  85%{opacity:.7}100%{transform:translateY(-110vh);opacity:0}}
+.gridfloor{position:absolute;left:-20%;right:-20%;bottom:-4%;height:46%;
+  pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(77,227,255,.22) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(77,227,255,.22) 1px,transparent 1px);
+  background-size:56px 56px;transform:perspective(520px) rotateX(62deg);
+  -webkit-mask-image:linear-gradient(to top,rgba(0,0,0,.9),transparent 85%);
+  mask-image:linear-gradient(to top,rgba(0,0,0,.9),transparent 85%);
+  animation:gridmove 3.2s linear infinite}
+@keyframes gridmove{to{background-position:0 56px,0 0}}
+.herostats{display:flex;gap:34px;margin-top:32px;flex-wrap:wrap}
+.herostats b{display:block;font-family:'Orbitron';font-weight:800;font-size:27px;color:#fff;
+  text-shadow:0 0 14px rgba(77,227,255,.8)}
+.herostats span{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--muted)}
+.ticker{border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:rgba(8,12,26,.6);overflow:hidden;padding:13px 0;position:relative;z-index:2}
+.ticker-inner{display:inline-flex;gap:34px;white-space:nowrap;width:max-content;
+  font-family:'Orbitron';font-size:13px;letter-spacing:.3em;color:var(--cyan);
+  text-shadow:0 0 10px rgba(77,227,255,.6);animation:tickmove 26s linear infinite}
+.ticker-inner .dot{color:var(--violet);text-shadow:0 0 10px rgba(139,92,246,.7)}
+@keyframes tickmove{to{transform:translateX(-50%)}}
+#arisebtn{animation:btnpulse 2.2s ease-in-out infinite}
+@keyframes btnpulse{50%{box-shadow:0 0 46px rgba(77,227,255,.9)}}
 
 /* modal */
 #modal{position:fixed;inset:0;z-index:250;display:none;align-items:center;justify-content:center;
@@ -415,6 +451,8 @@ footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:cent
 
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  .ticker-inner,.gridfloor,#arisebtn{animation:none!important}
+  #runes{display:none}
   [data-reveal]{opacity:1;transform:none;clip-path:none}
   html{scroll-behavior:auto}
 }
@@ -456,6 +494,7 @@ footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:cent
 <!-- HERO -->
 <section id="hero">
   <div id="gatebg" aria-hidden="true"></div><div class="aura" aria-hidden="true"></div>
+  <div id="runes" aria-hidden="true"></div><div class="gridfloor" aria-hidden="true"></div>
   <div class="wrap">
     <div class="sysline">❖ AURA SYSTEM &nbsp;•&nbsp; GATE DETECTED &nbsp;•&nbsp; AWAITING HUNTER</div>
     <h1 class="hero-title" aria-label="ARISE">
@@ -465,6 +504,11 @@ footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:cent
     <div class="hero-cta">
       <a class="btn primary magnetic" href="aura.apk" download>ACCEPT THE SYSTEM</a>
       <a class="btn ghost magnetic" href="#status">VIEW STATUS</a>
+    </div>
+    <div class="herostats">
+      <div><b data-count="1208">0</b><span>DEVICES SECURED</span></div>
+      <div><b data-count="100">0</b><span>% PROTECTION</span></div>
+      <div><b data-count="6">0</b><span>SHADOWS AWAKE</span></div>
     </div>
     <div class="glass qwindow" role="dialog" aria-label="Daily quest">
       <div class="qh">[ DAILY QUEST ]</div>
@@ -477,6 +521,8 @@ footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:cent
   </div>
   <div class="scrollhint" aria-hidden="true">SCROLL TO AWAKEN<i></i></div>
 </section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-inner" id="tickerin"></div></div>
 
 <!-- RANKS -->
 <section id="ranks">
@@ -740,6 +786,7 @@ function finish(){
   document.body.classList.add('ready');
   flash();
   setTimeout(function(){loader.style.display='none'},600);
+  startReveals();
 }
 function tick(t){
   if(done)return;
@@ -830,7 +877,7 @@ function count(el){
   var target=+el.dataset.count,t0=performance.now();
   (function step(t){
     var p=Math.min(1,(t-t0)/1200);
-    el.textContent=Math.floor(target*(1-Math.pow(1-p,3)));
+    el.textContent=Math.floor(target*(1-Math.pow(1-p,3))).toLocaleString('en-US');
     if(p<1)requestAnimationFrame(step);
   })(t0);
 }
@@ -846,7 +893,11 @@ var io=new IntersectionObserver(function(es){
     io.unobserve(el);
   });
 },{threshold:.18});
-document.querySelectorAll('[data-reveal],.kicker[data-scramble],#statuswin').forEach(function(el){io.observe(el)});
+var revealsStarted=false;
+function startReveals(){
+  if(revealsStarted)return;revealsStarted=true;
+  document.querySelectorAll('[data-reveal],.kicker[data-scramble],#statuswin').forEach(function(el){io.observe(el)});
+}
 
 /* ---------- magnetic + ripple ---------- */
 if(!touch&&!reduced){
@@ -885,6 +936,30 @@ if(!touch&&!reduced){
     });
   });
 }
+
+/* ---------- runes + ticker ---------- */
+(function(){
+  var runeBox=document.getElementById('runes');
+  if(runeBox&&!reduced){
+    var glyphs='ᚠᚱᛟᛗᛞᚨᚷᛚᛇᛜᚦ';
+    for(var ri=0;ri<16;ri++){
+      var rs=document.createElement('span');
+      rs.textContent=glyphs[Math.floor(Math.random()*glyphs.length)];
+      rs.style.left=(Math.random()*100)+'%';
+      rs.style.animationDuration=(7+Math.random()*8)+'s';
+      rs.style.animationDelay=(-Math.random()*12)+'s';
+      rs.style.fontSize=(12+Math.random()*16)+'px';
+      runeBox.appendChild(rs);
+    }
+  }
+  var ti=document.getElementById('tickerin');
+  if(ti){
+    var phrases=['THE SYSTEM HAS CHOSEN YOU','ARISE','KID-SAFE KIOSK','PARENT PIN FORGED','LIVE MONITORING','CLOUD SYNC','SHADOW MONARCH','✦'];
+    var th='';
+    for(var k=0;k<2;k++)phrases.forEach(function(p){th+='<span>'+p+'</span><span class="dot">◆</span>'});
+    ti.innerHTML=th;
+  }
+})();
 
 /* ---------- hero quest window ---------- */
 document.getElementById('qnobtn').addEventListener('click',function(e){
