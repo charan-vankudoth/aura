@@ -498,6 +498,11 @@ footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:cent
 .countdown b{display:block;font-family:'Orbitron';font-weight:800;font-size:30px;color:var(--cyan);
   text-shadow:0 0 12px rgba(77,227,255,.7)}
 .countdown span{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--muted)}
+.emigrid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:20px 0 6px}
+.emigrid span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+  border:1px solid var(--border);border-radius:8px;padding:8px 10px;color:var(--text)}
+.emigrid span b{color:var(--aura)}
+.late-note b{color:var(--danger)!important}
 /* ---- proof gallery: snap-scroll phone frames ---- */
 .shots{display:grid;grid-auto-flow:column;grid-auto-columns:min(240px,68vw);
   gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;
@@ -820,6 +825,13 @@ footer.site{border-top:1px solid var(--border);padding:34px 22px;text-align:cent
       </div>
       <p class="price-note">Offer ends <b>Sunday, Oct 11</b>. After Dasara the seal costs <b>₹1000</b>. Claim it inside the app before the gate closes.</p>
       <div style="margin-top:26px"><a class="btn primary magnetic" href="https://github.com/charan-vankudoth/aura-system/releases/download/v1.0/aura.apk" download>CLAIM FOR ₹700</a></div>
+    </div>
+    <div class="glass pricebox" data-reveal="scale" style="margin-top:20px">
+      <div class="price-kicker">⚖ EMI PATH ⚖</div>
+      <div><span class="price-now" style="font-size:clamp(40px,8vw,64px)">₹800</span></div>
+      <p class="price-note"><b>₹80 per day × 10 days.</b> Can't pay at once? Walk the EMI path instead — same seal, smaller steps.</p>
+      <div class="emigrid" id="emigrid"></div>
+      <p class="price-note late-note">Late a day? <b>+₹20.</b> Two days late? <b>+₹40.</b> Every late day adds ₹20 — the System charges interest in shadows. Finish in 10 days and you pay only ₹800.</p>
     </div>
   </div>
 </section>
@@ -1361,6 +1373,15 @@ function drawRadar(){
     setTimeout(tick,1000);
   }
   tick();
+})();
+
+/* ---------- emi schedule pills ---------- */
+(function(){
+  var g=document.getElementById('emigrid');
+  if(!g)return;
+  var h='';
+  for(var d=1;d<=10;d++)h+='<span>D'+d+' <b>₹80</b></span>';
+  g.innerHTML=h;
 })();
 
 /* ---------- finale ---------- */
