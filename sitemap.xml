@@ -3,18 +3,13 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://charan-vankudoth.github.io/aura-system/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://charan-vankudoth.github.io/aura-system/site-icon.jpg</image:loc>
       <image:title>aura-system — ARISE Shadow Monarch artwork</image:title>
       <image:caption>Official aura-system site artwork: the Shadow Monarch under ARISE.</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://charan-vankudoth.github.io/aura-system/aura-icon.png</image:loc>
-      <image:title>aura-system app icon</image:title>
-      <image:caption>Blue shield emblem of the aura-system parental control kiosk app.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://charan-vankudoth.github.io/aura-system/shot-kiosk-home.jpg</image:loc>
